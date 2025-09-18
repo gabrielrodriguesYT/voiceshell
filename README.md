@@ -1,15 +1,56 @@
-# voiceshell-c-digo-fonte
-Código fonte do pacote Linux Voiceshell
+# Voiceshell
 
-Voiceshell é um pacote de comandos linux usado para através da fala executar comandos no linux, sem a necessidade de digitar, foi criado por Gabriel Rodrigues Carneiro.
+Voiceshell é um pacote de comandos Linux que permite, através da fala, executar comandos sem a necessidade de digitá-los. Foi criado por Gabriel Rodrigues Carneiro.
 
-Modo de uso:
+## Modo de Uso
 
-baixe o .deb no arquivo através do wget
+### 1. Baixar o Pacote
 
-wget https://voiceshell.netlify.app/download/voiceshell_1.0_all.deb
+Você pode baixar o pacote .deb de duas formas:
 
-ou acessando https://voiceshell.netlify.app/download/voiceshell_1.0_all.deb diretamente no navegador e baixando.
+- Usando o wget:
 
-logo após isso no diretório onde está salvo o arquivo é necessário usar o comando sudo dpkg - i voiceshell_1.0_all.deb para instalar, e se concluir sem erros, digite voiceshell install, para resolver possíveis problemas, e pronto, agora é só usar voiceshell start e começar a fala!
+  ```
+  wget https://voiceshell.netlify.app/download/voiceshell_1.0_all.deb
+  ```
 
+- Acessando diretamente no navegador:
+
+  [Baixe o Voiceshell aqui](https://voiceshell.netlify.app/download/voiceshell_1.0_all.deb)
+
+### 2. Instalação
+
+Após o download, navegue até o diretório onde o arquivo foi salvo e execute o seguinte comando para instalar:
+
+```
+sudo dpkg -i voiceshell_1.0_all.deb
+```
+
+Se a instalação for concluída sem erros, digite:
+
+```
+voiceshell install
+```
+
+### 3. Começando a Usar
+
+Agora, você está pronto para usar o Voiceshell! Basta iniciar o programa com:
+
+```
+voiceshell start
+```
+
+E comece a falar!
+
+## Recursos
+
+- Execução por voz: Execute comandos do Linux apenas falando.
+- Interface intuitiva: Fácil de usar e configurar.
+- Compatível com diversas distribuições Linux, baseadas em debian, como por exemplo o próprio debian, Ubuntu, Lubuntu,etc.
+
+
+---
+
+### Contato
+
+Para mais informações, visite https://voiceshell.netlify.app/
