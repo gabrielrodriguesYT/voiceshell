@@ -1,0 +1,10 @@
+Package: vocalshell
+Version: 1.0
+Architecture: all
+Maintainer: gabriel rodrigues carneiro <gabriel88bielga@gmail.com>
+Installed-Size: 11
+Section: unknown
+Priority: optional
+Multi-Arch: foreign
+Description: reconhcedor de voz no linux
+ Reconhece e executa os coamndos

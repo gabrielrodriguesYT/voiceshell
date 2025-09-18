@@ -1,0 +1,21 @@
+Source: voiceshell
+Section: unknown
+Priority: optional
+Maintainer: gabriel rodrigues carneiro <gabriel88bielga@gmail.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+Standards-Version: 4.6.2
+Homepage: 
+#Vcs-Browser: https://salsa.debian.org/debian/svn
+#Vcs-Git: https://salsa.debian.org/debian/svn.git
+
+Package: voiceshell
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: reconhcedor de voz no linux
+ Reconhece e executa os coamndos
+ 

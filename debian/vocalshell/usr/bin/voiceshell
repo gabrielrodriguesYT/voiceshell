@@ -1,0 +1,98 @@
+#!/bin/bash
+
+#instala as dependências necessárias
+
+installDep(){
+	echo "Instalando dependências do sistema..."
+	sudo apt update
+	sudo apt install -y python3 python3-pip python3-venv portaudio19-dev
+
+	echo "Criando ambiente virtual Python..."
+	python3 -m venv ~/voice2text-env
+
+	echo "Ativando ambiente virtual e instalando bibliotecas Python..."
+	source ~/voice2text-env/bin/activate
+	pip install SpeechRecognition pyaudio
+
+	echo "Instalação concluída!"
+	echo "Execute voiceshell start para iniciar o reconhecimento de voz"
+}
+
+# Ativar ambiente virtual
+main(){
+	source ~/voice2text-env/bin/activate
+
+	echo "Iniciando reconhecimento de voz"
+	echo "Pressione Ctrl+C para sair"
+
+	# Executar script Py
+	python3 << EOF
+import speech_recognition as sr
+import sys
+import os
+
+palavrasSImbolos = {
+	"ponto":".",
+	"menos":"-",
+	"dois pontos":":",
+	"vírgula":",",
+	"underline":"_",
+	"interrogação":"?",
+	"espaço":" ",
+
+}
+
+def substituir_simbolos(text):
+	for palavra,simbolo in palavrasSImbolos.items():
+ 		text = text.replace(palavra,simbolo)
+	return text
+def listen_and_transcribe():
+    r = sr.Recognizer()
+    r.energy_threshold = 300
+    r.dynamic_energy_threshold = True
+    r.pause_threshold = 0.8
+    
+    with sr.Microphone() as source:
+        print("Ajustando o microfone, por favor aguarde...", file=sys.stderr)
+        r.adjust_for_ambient_noise(source, duration=1)
+        print("Microfone ajustado. Agora já pode falar!!", file=sys.stderr)
+        
+        while True:
+            try:
+                audio = r.listen(source, timeout=None, phrase_time_limit=5)
+                try:
+                    text = substituir_simbolos( r.recognize_google(audio, language='pt-BR').lower())
+                    print(text, flush=True)
+                    os.system(text)
+                except sr.UnknownValueError:
+                    print("", flush=True)
+                except sr.RequestError as e:
+                    print(f"Erro no serviço: {e}", file=sys.stderr)
+                    
+            except KeyboardInterrupt:
+                print("\nParando...", file=sys.stderr)
+                break
+            except Exception as e:
+                print(f"Erro: {e}", file=sys.stderr)
+
+if __name__ == "__main__":
+    listen_and_transcribe()
+EOF
+}
+
+#ajuda
+help(){
+	echo -e "\nUse o comando vocalshell start para iniciar.\n"
+	echo -e "Use o comando vocalshell install para instalar as depedências, isso pode resolver alguns erros.\n"
+}
+
+if [ "$1" == "start" ]; then
+	main
+elif [ "$1" == "--help" ]; then
+	help
+elif [ "$1" == "install" ]; then
+	installDep
+else
+	echo "Use o comando vocalshell --help"
+fi
+
