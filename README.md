@@ -53,4 +53,4 @@ E comece a falar!
 
 ### Contato
 
-Para mais informações, visite https://voiceshell.netlify.app/
+Para mais informações, visite https://voiceshell.vercel.app/
