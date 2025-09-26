@@ -16,7 +16,7 @@ Você pode baixar o pacote .deb de duas formas:
 
 - Acessando diretamente no navegador:
 
-  [Baixe o Voiceshell aqui](https://voiceshell.netlify.app/download/voiceshell_1.0_all.deb)
+  [Baixe o Voiceshell aqui](https://voiceshell.vercel.app/download/voiceshell_1.0_all.deb)
 
 ### 2. Instalação
 
