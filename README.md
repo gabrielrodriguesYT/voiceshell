@@ -11,7 +11,7 @@ Você pode baixar o pacote .deb de duas formas:
 - Usando o wget:
 
   ```
-  wget https://voiceshell.netlify.app/download/voiceshell_1.0_all.deb
+  wget https://voiceshell.vercel.app/download/voiceshell_1.0_all.deb
   ```
 
 - Acessando diretamente no navegador:
